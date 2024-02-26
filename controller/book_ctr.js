@@ -4,11 +4,12 @@ Books.sync({ force: false });
 
 const createBook = async (req, res) => {
   try {
-    const { author, bookName, description, pageCount, year, genre, publisher } =
+    const { author, bookName, img, description, pageCount, year, genre, publisher } =
       req.body;
     if (
       !author ||
       !bookName ||
+      !img ||
       !description ||
       !pageCount ||
       !year ||
@@ -16,12 +17,13 @@ const createBook = async (req, res) => {
       !publisher
     ) {
       return res.status(200).send({
-        msg: "all fields require!",
+        message: "all fields require!",
       });
     }
     await Cars.create({
       author,
       bookName,
+      img,
       description,
       pageCount,
       year,
@@ -29,11 +31,11 @@ const createBook = async (req, res) => {
       publisher,
     });
     return res.status(200).send({
-      msg: "Cteated book",
+      message: "Cteated book",
     });
   } catch (err) {
     return res.status(400).send({
-      msg: err.message,
+      message: err.message,
     });
   }
 };
@@ -45,7 +47,7 @@ const getOneBook = async (req, res) => {
     return res.json(Book);
   } catch (err) {
     return res.status(400).send({
-      msg: err.message,
+      message: err.message,
     });
   }
 };
@@ -56,7 +58,7 @@ const getAllBooks = async (_, res) => {
     return res.json(Book);
   } catch (err) {
     return res.status(400).send({
-      msg: err.message,
+      message: err.message,
     });
   }
 };
@@ -73,11 +75,11 @@ const deleteBook = async (req, res) => {
       },
     });
     return res.send({
-      msg: "deleted book!",
+      message: "deleted book!",
     });
   } catch (err) {
     return res.send({
-      msg: err.message,
+      message: err.message,
     });
   }
 };

@@ -11,6 +11,10 @@ const Books = sequelize.define("books", {
     type: DataTypes.TEXT,
     allowNull: false
   },
+  img: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
   bookName: {
     type: DataTypes.TEXT,
     allowNull: false
