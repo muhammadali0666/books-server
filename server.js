@@ -1,14 +1,16 @@
 const express = require("express")
-require("dotenv").config()
+const dotenv = require("dotenv")
 const cors = require("cors")
 const bookRouter = require("./router/book_router")
 const authorRouter = require("./router/author_router")
 
-const PORT = process.env.PORT || 4000
-
 const app = express()
-app.use(cors)
-app.use(express.json())
+app.use(cors());
+dotenv.config();
+const PORT = process.env.PORT || 4000;
+
+
+app.use(express.json());
 
 ///////////////////////// router
 app.use(bookRouter)
