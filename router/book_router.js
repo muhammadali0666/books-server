@@ -4,8 +4,8 @@ const {getAllBooks, getOneBook, createBook, deleteBook} = require("../controller
 const bookRouter = Router()
 
 bookRouter.get("/books", getAllBooks)
-bookRouter.get("/books_one/:id", getOneBook)
+bookRouter.get("/book_one/:id", getOneBook)
 bookRouter.post("/create_book", createBook)
-bookRouter.delete("/delete_book?:id", deleteBook)
+bookRouter.delete("/delete_book/:id", deleteBook)
 
 module.exports = bookRouter

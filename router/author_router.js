@@ -3,7 +3,7 @@ const {getAllAuthors, getOneAuthor, addAuthor, deleteAuthor} = require("../contr
 
 const authorRouter = Router()
 
-authorRouter.get("/author", getAllAuthors)
+authorRouter.get("/authors", getAllAuthors)
 authorRouter.get("/author_one/:id", getOneAuthor)
 authorRouter.post("/add_author", addAuthor)
 authorRouter.delete("/delete_author/:id", deleteAuthor)

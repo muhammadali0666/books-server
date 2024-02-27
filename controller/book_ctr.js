@@ -20,7 +20,7 @@ const createBook = async (req, res) => {
         message: "all fields require!",
       });
     }
-    await Cars.create({
+    await Books.create({
       author,
       bookName,
       img,
