@@ -1,22 +1,17 @@
-const { Sequelize, DataTypes } = require("sequelize")
-require("dotenv").config()
+const { Sequelize, DataTypes } = require("sequelize");
+require("dotenv").config();
 
-const sequelize = new Sequelize({
-    username: "postgres",
-    database: "book",
-    password: process.env.PASSWORD,
-    port: 5432,
-    host: "localhost",
-    dialect: "postgres",
-    logging: false
-})
+const sequelize = new Sequelize(
+  `postgres://ecbqejrv:DRAYede7yrWeX0oFbeNDd_jXFYmveWv3@floppy.db.elephantsql.com/ecbqejrv`,
+  { logging: false }
+);
 
 sequelize
-      .authenticate()
-      .then(() => console.log('Connected'))
-      .catch((err) => console.log(err))  
+  .authenticate()
+  .then(() => console.log("Connected"))
+  .catch((err) => console.log(err));
 
 module.exports = {
-    sequelize,
-    DataTypes
-}
+  sequelize,
+  DataTypes,
+};
